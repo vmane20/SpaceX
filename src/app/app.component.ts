@@ -23,10 +23,11 @@ export class AppComponent implements OnInit {
   constructor(private service: SpacexService){}
 
   ngOnInit(){
+    this.IsLoading = true;
     this.service.getData()
     .subscribe(response=>{
       this.data = response;
-      console.log(this.data);
+      this.IsLoading = false;
     });
   }
 
@@ -102,7 +103,6 @@ export class AppComponent implements OnInit {
     this.service.getData(queryParam)
     .subscribe(response=>{
       this.data = response;
-      console.log(this.data);
       this.IsLoading = false;
     });
   }
