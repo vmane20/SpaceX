@@ -11,7 +11,6 @@ export class SpacexService {
 
   getData(query?:string){
     let url = query?this.baseUrl+query:this.baseUrl;
-    console.log(url);
     return this.http.get(url);
   }
 }
